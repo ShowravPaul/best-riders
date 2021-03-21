@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
 import './Book.css'
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
@@ -8,7 +7,6 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 const Book = () => {
     const [startDate, setStartDate] = useState(new Date());
-    const { bedType } = useParams();
     return (
         <div className="container mt-5">
             <div>

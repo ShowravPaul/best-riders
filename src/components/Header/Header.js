@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import Book from '../Book/Book';
 import './Header.css';
 import { UserContext } from '../../App';
 
 const Header = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser] = useContext(UserContext);
     return (
         <div>
             <nav className=" header navbar navbar-default" role="navigation">
