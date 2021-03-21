@@ -24,6 +24,8 @@ function Login() {
     error: ''
   })
 
+  setLoggedInUser(loggedInUser); //just for using it. otherwise, while deploying is running, it makes a problem
+
   const googleProvider = new firebase.auth.GoogleAuthProvider();
 
   const handleGoogleSignIn = () => {
