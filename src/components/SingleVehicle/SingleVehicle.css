@@ -1,0 +1,13 @@
+.card img{
+    height: 150px;
+    width: 180px;
+}
+.card-custom{
+    margin-top: 15%;
+    align-items: center;
+}
+.card-text-custom{
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}

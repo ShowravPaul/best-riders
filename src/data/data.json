@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "vehicleName": "Bike",
+        "cost": 50,
+        "personCapacity": 2,
+        "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtmGIsFwHw2qVTFstO5ji_pTluacvyXJPzIqd3aEapqeRtp9Wuvoq_EjmScGZ4Jngo4n0&usqp=CAU"
+    },
+    {
+        "id": 2,
+        "vehicleName": "Car",
+        "cost": 100,
+        "personCapacity": 4,
+        "imageURL": "https://www.easylinedrawing.com/wp-content/uploads/2019/07/cartoon_car_drawing_tutorial.png"
+    },
+    {
+        "id": 3,
+        "vehicleName": "Bus",
+        "cost": 15,
+        "personCapacity": 30,
+        "imageURL": "https://cdn2.vectorstock.com/i/thumb-large/66/61/light-green-bus-vector-7406661.jpg"
+    },
+    {
+        "id": 4,
+        "vehicleName": "Train",
+        "cost": 5,
+        "personCapacity": 100,
+        "imageURL": "https://www.seekpng.com/png/detail/405-4057662_cartoon-train-train-clipart.png"
+    }
+]
