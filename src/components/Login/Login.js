@@ -20,7 +20,8 @@ function Login() {
     name: '',
     email: '',
     photo: '',
-    password: ''
+    password: '',
+    error: ''
   })
 
   const googleProvider = new firebase.auth.GoogleAuthProvider();
@@ -39,16 +40,19 @@ function Login() {
         setLoggedInUser(signedInUser);
         history.replace(from);
       })
-      .catch(err => {
-        console.log(err);
-        console.log(err.message);
+      .catch(error => {
+        const newUserInfo = { ...user };
+        newUserInfo.error = error.message;
+        setUser(newUserInfo);
       })
   }
 
 
   const handleBlur = (event) => {
-    // event.target.name eita hoilo input ta ki er ekta naam
-    // event.target.value eita value ja ami input e likhchi
+    const newUserInfo = { ...user };
+    newUserInfo.error = '';
+    setUser(newUserInfo);
+
     let fieldValid = true;
     if (event.target.name === 'email') {
       fieldValid = /\S+@\S+\.\S+/.test(event.target.value); // value ta test korlam mail kina
@@ -65,6 +69,13 @@ function Login() {
 
 
   const handleSubmit = (event) => {
+
+    if(!(user.email && user.password)){
+      const newUserInfo = { ...user };
+      newUserInfo.error = 'Invalid password or email. Try again! Thank you!!';
+      setUser(newUserInfo);
+    }
+
     if (newUser && user.email && user.password) {//firebase authentication password
       firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
         .then((userCredential) => {
@@ -116,9 +127,9 @@ function Login() {
     user.updateProfile({
       displayName: name
     }).then(function () {
-      console.log('user name updated successfully')
+      // console.log('user name updated successfully')
     }).catch(function (error) {
-      console.log(error);
+      // console.log(error);
     });
   }
   
@@ -144,8 +155,9 @@ function Login() {
         <br />
         <input type="submit" value={newUser ? 'Register' : 'Log In'} />
       </form>
-
+      
       <button type="submit" onClick={handleGoogleSignIn}>Continue with google</button>
+      <h6 className="error">{user.error}</h6>
     </div>
   );
 }

@@ -136,3 +136,7 @@ hr {
 .login-query{
     margin-bottom: 2rem;
 }
+.error{
+  color: red;
+  text-align: center;
+}
