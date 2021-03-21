@@ -7,6 +7,18 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 
 const Book = () => {
     const [startDate, setStartDate] = useState(new Date());
+    const [searched, setSearched] = useState(true);
+    const [places, setPlaces]= useState([]);
+    
+    // const vehicleName = useParams();
+    // console.log(vehicleName);
+
+    const handleBlue = event => {
+        if (event.target.name === "from") places[0] = event.target.value;
+        if (event.target.name === "to") places[1] = event.target.value;
+        setPlaces(places);
+    }
+    
     return (
         <div className="container mt-5">
             <div>
@@ -14,15 +26,24 @@ const Book = () => {
                 <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
             </div>
             <div className="row">
-                <div className="col-sm-12 col-lg-4 col-md-6 search-form">
-                    <form className="mt-3">
-                        <input type="email" className="form-control" id="" placeholder="From"></input>
-                        <br />
-                        <input type="email" className="form-control" id="" placeholder="To"></input>
-                        <br />
-                        <button className="btn btn-primary">Search</button>
-                    </form>
-                </div>
+
+                {
+                    searched && <div className="col-sm-12 col-lg-4 col-md-6 search-form">
+                        <form className="mt-3">
+                            <input className="form-control" onBlur={handleBlue} name="from" id="" placeholder="From" required></input>
+                            <br />
+                            <input className="form-control" onBlur={handleBlue} name="to" id="" placeholder="To" required></input>
+                            <br />
+                            <button className="btn btn-primary" onClick={() => setSearched(!searched)}>Search</button>
+                        </form>
+                    </div>
+                }
+                {
+                    !searched && <div className="col-sm-12 col-lg-4 col-md-6 afterSearch">
+                            <h1>{places[0]} <span style={{color: "red"}}>To</span> {places[1]}</h1>
+                    </div>
+                }
+
                 <div className="col-sm-12 col-lg-8 col-md-6">
                     <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
                         <TileLayer
@@ -42,10 +63,3 @@ const Book = () => {
 };
 
 export default Book;
-
-
-
-        // <div style={{textAlign: 'center'}}>
-        //     {/* <h1 style={{color: 'black'}}>This is the {bedType} room booking area</h1> */}
-
-        // </div>

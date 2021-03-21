@@ -19,3 +19,11 @@
     float: left;
     margin-right: 10px;
 }
+.afterSearch{
+    color: white;
+    border: black;
+    width: 300px;
+    height: 400px;
+    border: 2px solid rgb(26, 81, 184);
+    border-radius: 3px;
+}
