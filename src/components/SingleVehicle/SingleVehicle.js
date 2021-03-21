@@ -7,7 +7,7 @@ const SingleVehicle = (props) => {
     return (
         <div className="col-sm-12 col-md-6 col-lg-3">
             {/* <Link to={`/book/${vehicleName}`}> */}
-            <Link to={`/book/${vehicleName}`}>
+            <Link to={`/destination/${vehicleName}`}>
                 <div className="card card-custom">
                     <div className="card-body">
                         <img src={imageURL} alt="" />
